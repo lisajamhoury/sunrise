@@ -61,7 +61,7 @@ void main() {
 
 const float INFINITY = 1.0 / 0.0;
 const float M_PI = 3.1415926f;
-const float DURATION = 5.;
+const float DURATION = 18.;
 
 const float earthRadius = 6360e3;
 const float atmosphereRadius = 6420e3;
@@ -163,7 +163,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 col = vec3(0.0);
     float scale = .4; // this adds more suns 
     //if(z2 <= 1.){
-        float phi = (x/2. - 10./3. * 240.0/iResolution.y )*2.*M_PI*scale; // .96 position of sun on horizontal axis (fixed to .96 to center)
+        float phi = (x/2. - 10./3. * 113/iResolution.y )*2.*M_PI*scale; // .96 position of sun on horizontal axis (fixed to .96 to center)
         float theta;
         if (fract((float(iFrame)/DURATION+40.)/180.) < .5) {
             theta = y*M_PI*scale-1.5;

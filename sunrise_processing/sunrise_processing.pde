@@ -3,7 +3,7 @@ PShader myShader;
 PGraphics myGraphics;
 
 boolean DEBUG = false;
-boolean RECORD = false;
+boolean RECORD = true;
 
 // uniform float     iChannelTime[4];       // channel playback time (in seconds)
 // uniform vec3      iChannelResolution[4]; // channel resolution (in pixels)
@@ -19,10 +19,10 @@ float mouseClickState = 0.0;
 
 void setup() {
   // size(1728, 135, P2D);
-  size(3456, 270, P2D);
-  // size(6912, 540, P2D);
+  //size(3456, 270, P2D);
+   size(6912, 540, P2D);
 
-  if (RECORD) frameRate(24);
+  frameRate(30);
 
 
   myTexture = createImage(256,256,ARGB);
@@ -64,7 +64,7 @@ void draw() {
     mouseClickState = 0.0;
   }
 
-  // println("mouseX: "+ mouseX + " mouseY: " + mouseY);
+   //println("mouseX: "+ mouseX + " mouseY: " + mouseY);
   // myShader.set( "iMouse", lastMousePosition.x, lastMousePosition.y, mouseClickState, mouseClickState);
   myShader.set("iMouse", float(mouseX), float(mouseY), mouseClickState, mouseClickState);
 
@@ -85,9 +85,6 @@ void draw() {
   
   resetShader();
   
-  if (RECORD) {
-    saveFrame("output/sr_####.png");
-  }
 
 
   if (DEBUG) {
@@ -98,7 +95,11 @@ void draw() {
   myGraphics.endDraw();
   image(myGraphics, 0,0, width, height);
   }
+  
+    if (RECORD) {
+    saveFrame("output/sr_####.png");
+  }
+
 
   
 }
-
